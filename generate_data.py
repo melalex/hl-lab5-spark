@@ -37,14 +37,14 @@ def generate_row():
     return {
         "driver": random.randint(1, 2000),
         "client": random.randint(1, 4000),
-        "start_point": faker.address(),
-        "end_point": faker.address(),
+        "start_point": faker.address().replace("\n", " "),
+        "end_point": faker.address().replace("\n", " "),
         "trip_start_time": start_time.isoformat(),
         "trip_end_time": end_time.isoformat(),
         "trip_cost": round(random.uniform(5, 200), 2),
         "driver_rating": random.randint(1, 5),
         "driver_feedback": random.choice(feedback_categories),
-        "driver_text_feedback": faker.sentence(),
+        "driver_text_feedback": faker.sentence().replace("\n", " "),
         "customer_rating": random.randint(1, 5),
         "customer_feedback": random.choice(feedback_categories),
     }
